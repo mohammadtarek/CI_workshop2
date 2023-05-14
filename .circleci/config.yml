@@ -1,0 +1,26 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+
+version: 2.1 # version of circleci
+
+
+# Orchestrate or schedule a set of jobs
+jobs: #start of jobs
+  print_hello_world: #name of job
+    docker:
+      - image: circleci/node:13.8.0 #el imagre de mwgoda 3la el cloud fe circle ci
+    steps:
+      - run: echo hello world #el code ele h3ml leh execute
+  print_myname: #tany 7aga 3awezha tt3aml 
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo Mohammad Tarek
+workflows: #end of jobs
+  # Name the workflow "welcome"
+  welcome:
+    # Run the welcome/run job in its own container
+    jobs:
+      - print_hello_world
+      - print_myname:
+          requires:
+            - print_hello_world
