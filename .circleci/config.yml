@@ -21,6 +21,4 @@ workflows: #end of jobs
     # Run the welcome/run job in its own container
     jobs:
       - print_hello_world
-      - print_myname:
-          requires:
-            - print_hello_world
+      - print_myname
